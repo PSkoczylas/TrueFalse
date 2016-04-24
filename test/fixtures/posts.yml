@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  answer: false
+  comment: MyText
+  link: MyText
+  rate: 1.5
+  count_favourite: 1
+
+two:
+  body: MyText
+  answer: false
+  comment: MyText
+  link: MyText
+  rate: 1.5
+  count_favourite: 1

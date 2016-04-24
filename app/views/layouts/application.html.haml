@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PrototypeRecruitment
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header{:class => "header_position navbar navbar-fixed-top navbar-inverse "}
+      %div{:class => "container"}
+        = link_to "Prawda czy fałsz", root_path, id: "logo"
+        %nav
+          %ul{:class => "nav navbar-nav"}
+            %li 
+              = link_to "Wybierz kategorię", "#", id: "nav-link"
+            %li  
+              = link_to "Losuj", "#", id: "nav-link"
+            %li  
+              = link_to "Ranking", "#", id: "nav-link"
+            %li
+              = link_to "Dodaj", new_post_path, id: "nav-link"
+            %li
+              = link_to "Kontakt", "#", id: "nav-link"
+    %div{:class => "container"}
+    = yield
