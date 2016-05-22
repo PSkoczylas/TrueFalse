@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title PrototypeRecruitment
+    %title Prawda czy fałsz
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -22,5 +22,11 @@
               = link_to "Dodaj", new_post_path, id: "nav-link"
             %li
               = link_to "Kontakt", "#", id: "nav-link"
+          %ul{:class => "nav navbar-right"}
+            %li  
+              - if user_signed_in?
+                = link_to "Witaj " + current_user.name, show_user_path(current_user), id: "nav-linkb"
+              - else
+                = link_to "Zaloguj się", new_user_session_path, id: "nav-linkb"
     %div{:class => "container"}
     = yield

@@ -83,15 +83,30 @@ textarea {
   color: white;
 }
 
-.navbar-nav {
-  position: absolute;
-  top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+#nav-linkb {
+  background: #333;
+  font-size: 1.3em;
+  letter-spacing: -0.5px;
+  padding-top: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
 
+.navbar-nav {
+  position: absolute;
+  top: 60%;
+    left: 45%;
+    transform: translate(-40%, -60%)
+}
 
+.navbar-navb {
+  position: absolute;
+  top: 60%;
+    left: 90%;
+    margin-right: -50%;
+    transform: translate(-40%, -60%)
+}
 
 .second h1 {
   font-size: 3em;

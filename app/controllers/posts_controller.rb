@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :true_answer]
 
   # GET /posts
   # GET /posts.json
@@ -61,7 +61,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def true_answer
+    answer(true)
+    
+  end
+  
+  def false_answer
+    answer(false)
+  end
+
   private
+    def answer(user_answer)
+      @answer = UserAnswer.create(answer: user_answer, user_id: current_user.id, post_id: params[:id].to_i)
+      @answer.save
+      redirect_to posts_url
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
