@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   get 'true/:id', to: 'posts#true_answer', as: :true_answer
   get 'false/:id', to: 'posts#false_answer', as: :false_answer
+  get 'random_post', to: 'posts#random_post', as: :random_post
   get '/users/:id', to: 'users#show', as: :show_user
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

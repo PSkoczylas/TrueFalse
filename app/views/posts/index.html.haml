@@ -1,6 +1,7 @@
 %div{:class => "center jumbotron homepage standard"} 
   - @posts.each do |post|
-    %h3= post.body
+    %p= link_to post.body, post_path(post),  id: "body_text"
+    %td
     %div{:class => "btn-group", :role => "group"}
       - if user_signed_in?
         - if post.user_answers.find_by(user_id: current_user).present? and  

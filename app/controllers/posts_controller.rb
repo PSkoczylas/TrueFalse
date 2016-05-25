@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
@@ -68,6 +69,13 @@ class PostsController < ApplicationController
   
   def false_answer
     answer(false)
+  end
+
+  def random_post 
+    @post = Post.random
+    respond_to do |format|
+      format.html { redirect_to @post }
+    end
   end
 
   private
