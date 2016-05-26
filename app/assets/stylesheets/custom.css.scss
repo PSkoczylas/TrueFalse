@@ -4,6 +4,7 @@
 /* universal */
 
 body {
+  background: #444 !important;
   padding-top: 60px;
 }
 
@@ -70,21 +71,22 @@ textarea {
   font-size: 1.9em;
   color: white;
   letter-spacing: -1px;
-  padding-top: 15px;
+  padding-top: 8px;
   font-weight: bold;
+  background: none;
 }
 
 #nav-link {
   font-size: 1.3em;
   letter-spacing: -0.5px;
-  padding-top: 15px;
+  padding-top: 20px;
   font-weight: bold;
   text-decoration: none;
   color: white;
 }
 
 #nav-linkb {
-  background: #333;
+  background: none;
   font-size: 1.3em;
   letter-spacing: -0.5px;
   padding-top: 15px;

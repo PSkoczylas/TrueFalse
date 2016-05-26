@@ -36,5 +36,5 @@
                 = link_to "Witaj " + current_user.name, show_user_path(current_user), id: "nav-linkb"
               - else
                 = link_to "Zaloguj się", new_user_session_path, id: "nav-linkb"
-    %div{:class => "container"}
-    = yield
+    %div{:class => "center jumbotron homepage standard"} 
+      = yield
