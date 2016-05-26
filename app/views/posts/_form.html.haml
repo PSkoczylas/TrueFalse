@@ -7,22 +7,16 @@
           %li= msg
 
   .field
-    = f.label :body
+    = f.label :Fakt
     = f.text_area :body
   .field
-    = f.label :answer
+    = f.label :Odpowiedź
     = f.check_box :answer
   .field
-    = f.label :comment
+    = f.label :Komentarz
     = f.text_area :comment
   .field
-    = f.label :link
+    = f.label :"Link do źródła"
     = f.text_area :link
-  .field
-    = f.label :rate
-    = f.text_field :rate
-  .field
-    = f.label :count_favourite
-    = f.number_field :count_favourite
   .actions
     = f.submit 'Save'
