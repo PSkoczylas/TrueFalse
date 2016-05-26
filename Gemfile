@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 
 gem 'devise'
-
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,7 +40,6 @@ gem 'devise'
 # gem 'capistrano-rails', group: :development
 
 group :development do
-  gem 'pry-rails'
   gem 'better_errors'
   gem "rails_best_practices"
 end
@@ -50,6 +49,17 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :development do
