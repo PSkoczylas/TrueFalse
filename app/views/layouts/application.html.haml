@@ -21,11 +21,13 @@
         %nav
           %ul{:class => "nav navbar-nav"}
             %li 
-              = link_to "Wybierz kategorię", "#", id: "nav-link"
+              = link_to "Strona główna", posts_path, id: "nav-link"
+            /%li 
+            /  = link_to "Wybierz kategorię", "#", id: "nav-link"
             %li  
               = link_to "Losuj", random_post_path, id: "nav-link"
-            %li  
-              = link_to "Ranking", "#", id: "nav-link"
+            /%li  
+            /  = link_to "Ranking", "#", id: "nav-link"
             %li 
               = link_to "Dodaj", new_post_path, id: "nav-link"
             %li

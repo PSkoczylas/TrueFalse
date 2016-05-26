@@ -1,5 +1,5 @@
 - @posts.each do |post|
-  %p= link_to post.body, post_path(post),  id: "body_text"
+  %p= link_to post.body, post_path(post),  id: "body_text", :style => "color: black; background: none "
   %td
   %div{:class => "btn-group", :role => "group"}
     = render 'post', post: post
