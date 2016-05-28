@@ -1,7 +1,7 @@
 = form_for @post do |f|
   - if @post.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      %h2= "#{pluralize(@post.errors.count, "Błąd")} uniemożliwia zapisanie postu"
       %ul
         - @post.errors.full_messages.each do |msg|
           %li= msg
@@ -17,6 +17,6 @@
     = f.text_area :comment
   .field
     = f.label :"Link do źródła"
-    = f.text_area :link
+    = f.url_field :link
   .actions
     = f.submit 'Dodaj post'

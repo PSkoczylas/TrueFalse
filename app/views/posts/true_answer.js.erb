@@ -1,0 +1,7 @@
+var a = <%= @current_answer %>;
+if (a) {
+  $('#answer' + <%= j(@post.id.to_s) %>).html("<%= j (render 'true_answer') %>");
+} else {
+  $('#answer' + <%= j(@post.id.to_s) %>).html("<%= j (render 'false_answer') %>");
+}
+

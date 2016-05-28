@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :true_answer]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :true_answer, :false_answer]
 
   # GET /posts
-  # GET /posts.json
   def index
     @posts = Post.all
   end
 
   # GET /posts/1
-  # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
   end
@@ -19,49 +17,42 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post został dodany' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to @post
+    else
+      render :new
     end
   end
-
+  
+  # GET /true_answer
   def true_answer
     answer(true)
-    
   end
   
+  # GET /false_answer
   def false_answer
     answer(false)
   end
 
-  def random_post 
+  # GET /random_post
+  def random 
     @post = Post.random
-    respond_to do |format|
-      format.html { redirect_to @post }
-    end
   end
 
   private
     def answer(user_answer)
       @answer = UserAnswer.create(answer: user_answer, user_id: current_user.id, post_id: params[:id].to_i)
       @answer.save
-      redirect_to posts_url
+      @current_answer = @post.user_answers.find_by(user_id: current_user.id).answer == @post.answer
     end
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:body, :answer, :comment, :link, :rate, :count_favourite)
     end
