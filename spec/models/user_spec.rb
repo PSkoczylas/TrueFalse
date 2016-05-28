@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe "User" do
+  let!(:user) { build(:user) }
+
   it "has a valid factory" do
-    build(:user).should be_valid
+    user.should be_valid
   end
 
   it "has a present name" do
@@ -32,15 +34,14 @@ describe "User" do
   end
 
   it "email should be unique" do
-    user1 = build(:user, email: "aer.cgr@gerg.com")
-    user2 = user1.dup
-    user2.email = user1.email.upcase
-    user1.save
-    user2.should_not be_valid
+    user_dup = user.dup
+    user_dup.email = user.email.upcase
+    user.save
+    user_dup.should_not be_valid
   end
 
   it "password should be present " do
-    user1 = build(:user, password: "b" * 6, password_confirmation: "b" * 6).should be_valid
+    build(:user, password: "b" * 6, password_confirmation: "b" * 6).should be_valid
   end
 
   it "password and confirmation password should be the same" do
@@ -52,5 +53,4 @@ describe "User" do
     user1 = build(:user, password: "a", password_confirmation: "a").should_not be_valid
     user2 = build(:user, password: "b" * 5, password_confirmation: "b" * 5).should_not be_valid
   end
-
 end
