@@ -46,6 +46,8 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   require "capybara/rspec"
   require 'factory_girl_rails'
+  require 'devise'
+  config.include Devise::TestHelpers, :type => :controller
   config.include FactoryGirl::Syntax::Methods
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -74,7 +76,7 @@ RSpec.configure do |config|
  #   FactoryGirl.find_definitions
   end
 
-  config.expect_with(:rspec) { |c| c.syntax = :should }
+  config.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }
 
   
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

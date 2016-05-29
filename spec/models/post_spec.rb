@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Post" do
-  let!(:post) {build(:post)}
+  let!(:post) { build(:post) }
 
   it "has a valid factory" do
     post.should be_valid
@@ -17,4 +17,6 @@ describe "Post" do
     post.save
     post_dup.should_not be_valid
   end
+
+
 end
