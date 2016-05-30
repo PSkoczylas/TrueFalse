@@ -36,5 +36,12 @@ describe PostsController do
       expect(assigns(:post)).to match(post2)
     end
   end
+  
+  describe "GET #new" do
+    it "responds successfuly HTTP 200 status code" do
+      get :new, {format: :html}
+      expect(response.status).to eq(200)
+    end
+  end
 
 end
