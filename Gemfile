@@ -30,6 +30,9 @@ gem 'jquery-turbolinks'
 
 gem 'devise'
 gem 'simple_form'
+gem "pundit"
+gem 'friendly_id', '~> 5.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

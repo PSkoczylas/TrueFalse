@@ -18,5 +18,4 @@ describe "Post" do
     post_dup.should_not be_valid
   end
 
-
 end

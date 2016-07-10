@@ -1,6 +1,12 @@
 - if user_signed_in?
-  .answer{:id => "answer#{post.id}"}
-    = link_to "Prawda", true_answer_path(post), remote: true, method: "post", type: "button", class: "btn btn-default", style: "background: #57D123; color: black"
-    = link_to "Fałsz", false_answer_path(post), remote: true, method: "post", type: "button", class: "btn btn-default", style: "background: #D02121; color: black"
+  - if !@answers[post.id].nil?
+    - if @answers[post.id] == true
+      %h3= "Gratuluję, prawidłowa odpowiedź!"
+    - else
+      %h3= "Niestety, to nie jest prawidłowa odpowiedź"
+  - else
+    .answer{:id => "answer#{post.id}"}
+      = link_to "Prawda", true_answer_path(post), remote: true, method: "post", type: "button", class: "btn btn-default", style: "background: #57D123; color: black"
+      = link_to "Fałsz", false_answer_path(post), remote: true, method: "post", type: "button", class: "btn btn-default", style: "background: #D02121; color: black"
 - else
   %h3= "Zaloguj się, aby odpowiedać" 

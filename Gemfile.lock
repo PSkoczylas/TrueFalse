@@ -90,6 +90,8 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.10)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.14.0)
@@ -163,6 +165,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -295,6 +299,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  friendly_id (~> 5.1)
   guard-rspec
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
@@ -303,6 +308,7 @@ DEPENDENCIES
   launchy
   pg (= 0.17.1)
   pry-rails
+  pundit
   rails (= 4.2.6)
   rails_12factor (= 0.0.2)
   rails_best_practices

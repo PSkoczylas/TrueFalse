@@ -4,11 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
+    @answers = find_answers(@posts)
   end
 
   # GET /posts/1
   def show
     @post = Post.find(params[:id])
+    @answers = find_answers([@post])
   end
 
   # GET /posts/new
@@ -19,7 +21,6 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
-
     if @post.save
       redirect_to @post
     else
@@ -40,6 +41,7 @@ class PostsController < ApplicationController
   # GET /random_post
   def random 
     @post = Post.random
+    @answers = find_answers([@post])
   end
 
   private
@@ -49,6 +51,16 @@ class PostsController < ApplicationController
       @current_answer = @post.user_answers.find_by(user_id: current_user.id).answer == @post.answer
     end
     
+    def find_answers(posts)
+      answers = Hash.new
+      posts.each do |post|
+        if (!post.user_answers.find_by(user_id: current_user.id).nil?)
+          answers[post.id] = post.user_answers.find_by(user_id: current_user.id).answer == post.answer
+        end
+      end
+      return answers
+    end
+
     def set_post
       @post = Post.find(params[:id])
     end
