@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-    @answers = find_answers(@posts)
+    @answers = find_answers(@posts) 
   end
 
   # GET /posts/1
@@ -52,13 +52,15 @@ class PostsController < ApplicationController
     end
     
     def find_answers(posts)
-      answers = Hash.new
-      posts.each do |post|
-        if (!post.user_answers.find_by(user_id: current_user.id).nil?)
-          answers[post.id] = post.user_answers.find_by(user_id: current_user.id).answer == post.answer
+      if user_signed_in?
+        answers = Hash.new
+        posts.each do |post|
+          if (!post.user_answers.find_by(user_id: current_user.id).nil?)
+            answers[post.id] = post.user_answers.find_by(user_id: current_user.id).answer == post.answer
+          end
         end
+        return answers
       end
-      return answers
     end
 
     def set_post
