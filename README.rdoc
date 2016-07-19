@@ -2,4 +2,4 @@ This is my application where You can answer if sequence is true or false.
 
 You can see current version here: https://true-false-app.herokuapp.com/
 
-You have to log in or sign up (if You are not yet) by click login in menu bar and then click sign up there (You don't have to sign up by Your real e-mail).
+You have to log in or sign up (if You are not yet) by click Zaloguj się in menu bar and then click Zarejestruj się there (You don't have to sign up by Your real e-mail).
